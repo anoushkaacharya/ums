@@ -18,4 +18,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD ["python3.7.9", "app.py"]   # adjust to your app’s entrypoint
+CMD ["python3.7.9", "app.py"]   
+# adjust to your app’s entrypoint
