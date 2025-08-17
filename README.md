@@ -12,10 +12,7 @@ Link for SRS: [SRS Document](https://github.com/ronnie-36/University-Management-
 Link for Design Document: [Design Document](https://github.com/ronnie-36/University-Management-System/blob/main/documents/DesignDoc-P012_University_Manager_190001011_190001029_190001030_190001049.pdf)
 
 This project is developed by-
-1. Krishanu Saini 190001029 <br>
-2. Rahul Kumar 190001049 <br>
-3. Kuldeep Singh 190001030  <br>
-4. Deepkamal Singh 190001011    
+Anoushka
 <hr>
 
 Visit [http://softwarep012.com](http://softwarep012.pythonanywhere.com/) for live demo. Frontend and Backend working.  
