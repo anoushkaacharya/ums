@@ -1,4 +1,4 @@
--- DDL File
+ -- DDL File
 
 drop database university;
 create database university;

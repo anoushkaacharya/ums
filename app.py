@@ -1,24 +1,35 @@
 from flask import *
 from flask_cors import CORS, cross_origin
 from flask_mysqldb import MySQL
-from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
+from itsdangerous import URLSafeTimedSerializer as Serializer
 from flask_mail import Mail
 from flask_mail import Message
-from werkzeug.utils import html
+import os
+import secrets
 
-# models
-import models.student as student
-import models.admin as admin
-import models.faculty as faculty
-import models.auth as auth
 
 app = Flask(__name__)
 CORS(app)
 
 app.config.from_object('config.DevConfig')
 
+# Ensure a SECRET_KEY is available for session support.
+# Prefer an explicit environment-provided SECRET_KEY; otherwise generate
+# a random one for development (not suitable for production persistence).
+if not app.config.get('SECRET_KEY'):
+    env_secret = os.environ.get('SECRET_KEY')
+    app.config['SECRET_KEY'] = env_secret or secrets.token_hex(24)
+
 mysql = MySQL(app)
 mail = Mail(app)
+
+# Import app models after the Flask `app` and extensions are initialized.
+# Models may use the app context or extension instances, so importing
+# them earlier caused each module to create its own Flask app.
+import models.student as student
+import models.admin as admin
+import models.faculty as faculty
+import models.auth as auth
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
