@@ -1,4 +1,4 @@
-FROM python:3.7.9-slim   # or whatever base you’re using
+FROM python:3.7.9-slim
 
 # Install system dependencies for mysqlclient
 RUN apt-get update && apt-get install -y \
