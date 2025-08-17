@@ -8,10 +8,10 @@ The project consists of multiple subsystems -
 4. Admin Section(For managing students, faculty, courses and departments)
 
 
-This project is developed by-
-Anoushka Aditi Acharya <br>
-Honey <br>
-Smrutishree <br>
+This project is developed by- <br>
+## Anoushka Aditi Acharya <br>
+## Honey <br>
+## Smrutishree <br>
 <hr>
 
  
