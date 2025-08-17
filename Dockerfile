@@ -1,17 +1,19 @@
-FROM python:3.7.9-slim
+FROM python:3.7.9-slim   # or whatever base you’re using
 
-# Set working directory
-WORKDIR /app
+# Install system dependencies for mysqlclient
+RUN apt-get update && apt-get install -y \
+    default-libmysqlclient-dev \
+    build-essential \
+    pkg-config \
+    && rm -rf /var/lib/apt/lists/*
 
-# Install dependencies
+# Upgrade pip
+RUN pip install --upgrade pip setuptools wheel
+
+# Install Python dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy project
 COPY . .
 
-# Expose port
-EXPOSE 5000
-
-# Run Flask app
-CMD ["python3.7.9", "app.py"]
+CMD ["python3", "app.py"]   # adjust to your app’s entrypoint
