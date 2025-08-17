@@ -2,23 +2,24 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone Repo') {
+        stage('Clone Repository') {
             steps {
-                git branch: 'main',
-                    url: 'https://github.com/Aryo15/University-Management-System.git'
+                git branch: 'main', url: 'https://github.com/Aryo15/ums.git'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t uni_app .'
+                sh 'docker build -t ums-app .'
             }
         }
 
         stage('Run Container') {
             steps {
-                sh 'docker rm -f uni_app || true'
-                sh 'docker run -d --name uni_app -p 5000:5000 uni_app'
+                sh '''
+                  docker rm -f ums-app || true
+                  docker run -d -p 80:5000 --name ums-app ums-app
+                '''
             }
         }
     }
