@@ -12,6 +12,9 @@ This project is developed by- <br>
 # Anoushka Aditi Acharya <br>
 # Honey <br>
 # Smrutishree <br>
+# Kriti <br>
+# Debiprasad <br>
+# Rati Ranjan <br>
 <hr>
 
  
